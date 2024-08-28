@@ -2,7 +2,7 @@ const nombre = 'Daniel';
 
 // console.log(nombre);
 
-// ctrl + / 
+// ctrl + / para comentar
 
 const apellido = "Guzman"
 //console.log(apellido);
