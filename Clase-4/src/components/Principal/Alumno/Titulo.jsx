@@ -1,7 +1,7 @@
 import React from 'react'
 
-export const Titulo = () => {
+export const Titulo = ({titulo}) => {
   return (
-    <h1></h1>
+    <h1>{titulo}</h1>
   )
 }

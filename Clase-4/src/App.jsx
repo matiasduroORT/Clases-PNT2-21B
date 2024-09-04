@@ -2,6 +2,7 @@ import { useState } from 'react'
 import './App.css'
 import { Principal } from './components/Principal/Principal'
 import { Contador } from './components/Contador/Contador'
+import { TodoApp } from './components/TodoApp/TodoApp'
 
 function App() {
 
@@ -9,6 +10,7 @@ function App() {
     <>
     {/* <Principal /> */}
     <Contador />
+    <TodoApp/>
     </>
   )
 }
