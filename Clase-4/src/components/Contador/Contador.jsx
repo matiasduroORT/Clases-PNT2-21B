@@ -33,7 +33,13 @@ const Reducir = () => {
 
   return (
     <>
-    <Titulo titulo={'Contador: ' + contador}/>
+    {
+      contador > 0 ? (
+        <Titulo titulo={'Contador: ' + contador}/>
+      ): (
+        <h1>Cargando...</h1>
+      )
+    }
     <button onClick={Incrementar}>Incrementar Los Alumnos en +1</button>
     <button onClick={Reducir}>Reducir Los Alumnos en -1</button>
     </>
