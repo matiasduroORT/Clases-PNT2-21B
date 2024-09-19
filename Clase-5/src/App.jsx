@@ -19,9 +19,12 @@ function App() {
 
   return (
     <>
-    <CartProvider>
+    <AuthProvider>
+      <CartProvider>
       <Contenedor />
-    </CartProvider>
+      <Perfil />
+      </CartProvider>
+    </AuthProvider>
     </>
   )
 }

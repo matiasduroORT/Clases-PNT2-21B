@@ -11,6 +11,7 @@ export const Producto = ({ producto }) => {
         <h2>{producto.nombre}</h2>
         <p>{producto.precio}</p>
         <button onClick={() => addToCart(producto)}>Agregar al carrito</button>
+
     </div>
   )
 }

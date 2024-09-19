@@ -9,7 +9,10 @@ export function useCart(){
 
 export const CartProvider = ({children}) => {
 
-    const [carrito, setCarrito ] = useState([])
+    const { userCart } = useAuth()
+
+
+    const [carrito, setCarrito ] = useState( userCart || [])
 
     const addToCart = (producto) => {
         console.log('Llamando al carrito');
@@ -17,10 +20,12 @@ export const CartProvider = ({children}) => {
         setCarrito((carritoActual) => [...carritoActual, producto])
     }
 
-    // const removeFroMCart = (producto) => {
-    //     console.log('Llamando al carrito');
-    //     setCarrito((carritoActual) => [...carritoActual, producto])
-    // }
+    // const removeFroMCart = () => 
+    //     setCarrito()
+
+    
+
+
 
   return (
     <CartContext.Provider value={{carrito, addToCart}}>
