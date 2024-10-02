@@ -1,17 +1,39 @@
-const obtenerUsuarios = () => {
 
-    const respuesta = fetch('https://randomuser.me/api/')
+const obtenerUsuarios = async () => {
 
-    // Tienen que devolver 10 personas
+    const hombres = [];
+    const mujeres = [];
 
-    //array hombres y array mujeres
+    for (let i = 0; i < 10; i++) {
+        const respuesta = await fetch('https://randomuser.me/api/');
+        const data = await respuesta.json();
 
-    return {hombres, mujeres}
+        const usuario = data.results[0];
+
+        if (usuario.gender === 'male') {
+            hombres.push(usuario);
+        } else if (usuario.gender === 'female') {
+            mujeres.push(usuario);
+        }
+    }
+
+    return { hombres, mujeres };
 }
 
-function funcionPadre(){
+async function funcionPadre() {
+    const { hombres, mujeres } = await obtenerUsuarios();
 
-    const {hombres, mujeres} = obtenerUsuarios();
+    const txtUsuario = (user) => {
+        const nombre = `${user.name.first}`;
+        const genero = user.gender === 'male' ? 'es un hombre' : 'es una mujer';
+        return `nombre: ${nombre},${genero}`;
+    };
 
-    console.log(hombres, mujeres);
+    const hombresString = hombres.map(txtUsuario).join('\n');
+    const mujeresString = mujeres.map(txtUsuario).join('\n');
+
+    console.log(hombresString);
+    console.log(mujeresString);
 }
+
+funcionPadre();
